@@ -1,0 +1,267 @@
+/*
+Theme Name: Impreza Child
+Template: Impreza
+Version: 1.0
+Author:	UpSolution
+Theme URI: http://impreza.us-themes.com/
+Author URI: http://us-themes.com/
+*/
+
+
+/*------------------------------------------------*\
+	misc
+\*------------------------------------------------*/
+.grecaptcha-badge {visibility:collapse !important;}
+
+.text-shadow-dark {text-shadow:1px 1px 4px #000;}
+
+.text-shadow-light {text-shadow:1px 1px 4px #fff;}
+
+#page-content a {font-weight:bold;}
+
+.w-image-title {font-style:italic;}
+
+
+/*------------------------------------------------*\
+	header
+\*------------------------------------------------*/
+.sticky .lb-logo {position:static !important;}
+
+
+/*------------------------------------------------*\
+	titlebar
+\*------------------------------------------------*/
+#titlebar a:hover {color:#fff;}
+
+
+/*------------------------------------------------*\
+	sidebar
+\*------------------------------------------------*/
+.l-sidebar {padding-top:2.5em;}
+
+
+/*------------------------------------------------*\
+	tablepress
+\*------------------------------------------------*/
+.tablepress {font-size:14px;}
+
+.tablepress,
+.tablepress th,
+.tablepress td {border:1px solid #999;}
+
+.tablepress th,
+.tablepress td {
+    padding:5px;
+    vertical-align:middle !important;
+}
+
+.colored-table.tablepress th,
+.colored-table.tablepress td {padding:12px;}
+
+.colored-table.community-compare td {background-color: #fff;}
+
+.colored-table.community-compare tr:nth-child(2n) td {background-color: #D5E9C2;}
+
+.community-compare .column-1 {font-weight: bold;}
+
+.tablepress th {
+    background-color:#365f91;
+    color:#fff;
+}
+
+.tablepress td {background-color:#dbe5f1;}
+
+.tablepress li {margin-bottom:0;}
+
+/* doc woods pricing */
+#tablepress-1 .row-2 td,
+#tablepress-1 .row-3 td,
+#tablepress-1 .row-7 td,
+#tablepress-1 .row-8 td,
+#tablepress-1 .row-9 td,
+#tablepress-1 .row-12 td {background-color:#d6e3bc;}
+#tablepress-1 th.column-3 {width:15%;}
+
+/* souderton pricing */
+#tablepress-9 .row-2 td,
+#tablepress-9 .row-3 td,
+#tablepress-9 .row-4 td,
+#tablepress-9 .row-5 td,
+#tablepress-9 .row-8 td,
+#tablepress-9 .row-9 td,
+#tablepress-9 .row-10 td,
+#tablepress-9 .row-11 td,
+#tablepress-9 .row-12 td,
+#tablepress-9 .row-13 td,
+#tablepress-9 .row-14 td  {background-color:#d6e3bc;}
+
+.tablepress td li {text-align:left !important;}
+
+
+
+.care-page-overlay {
+	display: flex;
+    justify-content: center;
+    align-items: center;
+	height: 187px;
+	color: white;
+}
+
+.career-column-hover:hover{
+    background: rgba(255,255,255,0.3);
+    border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    margin-top: 10px;
+    padding: 30px;
+}
+
+span.wpcf7-list-item {
+    display: block;
+}
+
+.signupbox {
+	padding-left:11% !important;
+}
+
+.signupbox .w-btn {padding:0.8em 1.2em;}
+
+.redtext {
+	color: #DF0000 !important;
+}
+
+.footerlink a {
+	color: #faa819 !important;
+}
+
+.tablepress th, .tablepress td {
+    text-align: center;
+}
+
+.tablepress td .fas {
+	text-align: center;
+	font-size: 25px;
+}
+
+.odd .column-1  {
+    background: #CEC3AE !important;
+	color: black;
+}
+.even .column-1 {
+    background: #E3D1B6 !important;
+}
+
+.odd .column-2  {
+    background: #B8BFC2 !important;
+	color: black;
+}
+.even .column-2 {
+    background: #cfd3d6 !important;
+}
+
+.odd .column-3 {
+    background: #E7BD71 !important;
+	color: black;
+}
+.even .column-3 {
+    background: #F0D299 !important;
+}
+
+.odd .column-4  {
+    background: #BDC699 !important;
+	color: black;
+}
+.even .column-4 {
+    background: #D1D7B5 !important;
+}
+
+.column-7  {
+	color: black;
+}
+
+
+/* Reverse column stacking on Coronavius and subpages in mobile */
+@media (max-width: 768px){
+	body.page-id-1724 .l-section.for_sidebar.at_left>div>.g-cols, body.parent-pageid-1724 .l-section.for_sidebar.at_left>div>.g-cols, body.page-id-2154 .l-section.for_sidebar.at_left>div>.g-cols {
+		flex-direction: column-reverse;
+	}
+}
+
+
+/*------------------------------------------------*\
+	responsive tweaks
+\*------------------------------------------------*/
+@media screen and (max-width:1190px) {
+	/* tablet */
+}
+
+@media screen and (max-width:480px) {
+	/* mobile */
+}
+
+
+/* .tribe-events-calendar-month__events .cat_living-u {
+	display: none;
+} */
+
+
+
+
+
+
+
+
+div.woocommerce td.product-price,
+div.woocommerce th.product-price {
+	
+}
+
+div.product-addon-totals > ul > li {
+	
+}
+
+form.cart .product-addon-totals {
+	display: none;
+}
+
+
+.layout_8430 .w-hwrapper {
+    justify-content: space-between !important;
+}
+
+/* New submit button - DS */
+.forminator-button-submit{
+    font-family: var(--font-family) !important;
+    font-style: normal !important;
+    text-transform: none !important;
+    font-size: 16px !important;
+    line-height: 1.2 !important !important;
+    font-weight: 700 !important;
+    letter-spacing: 0em !important;
+    padding: 0.8em 1.8em !important;
+    transition-duration: .3s !important;
+    border-radius: 1.2em !important;
+	transition: background-color 0.3s ease !important;
+    transition-timing-function: ease !important;
+    background: linear-gradient(180deg, #ea9b6b, #dc6726) !important;
+    color: #ffffff !important !important;
+    box-shadow: 0px 0em 0em 0px rgba(0, 0, 0, 0.2) !important;
+	border: 2px solid #dc6726 !important;
+}
+
+.forminator-button-submit:hover{
+	color: #dc6726 !important;
+    background: #FFF !important;
+    border: 2px solid #dc6726 !important;
+}
+.forminator-label{
+	color: #333333 !important;
+    font-size: 15px !important;
+    font-weight: 600 !important;
+}
+.forminator-required{
+	color: #cf0e0e !important;
+}
+.forminator-error-message{
+	font-size: 14px !important;
+}

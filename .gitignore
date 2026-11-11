@@ -1,0 +1,26 @@
+# Living Branches (WP Engine) — allowlist approach.
+# Ignore everything, then re-include only the custom code we own.
+# WP core, WP Engine mu-plugins, third-party/premium plugins, the parent
+# theme, uploads, caches and DB dumps stay out of the repo.
+
+/*
+!/.gitignore
+
+# wp-content: only custom code
+!/wp-content/
+/wp-content/*
+!/wp-content/themes/
+/wp-content/themes/*
+!/wp-content/themes/Impreza-child/
+!/wp-content/plugins/
+/wp-content/plugins/*
+!/wp-content/plugins/lb-shop-rules/
+
+# Never commit, even inside allowed folders
+*.sql
+*.sql.gz
+*.log
+.DS_Store
+Thumbs.db
+node_modules/
+.env
