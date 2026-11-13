@@ -520,7 +520,13 @@ function load_scripts() {
 /**
  *	remove quatity by forcing all products to sell individually
  */
-function custom_remove_all_quantity_fields( $return, $product ) {return true;}
+function custom_remove_all_quantity_fields( $return, $product ) {
+	// Merch allows quantities; it follows each product's own "Sold individually" setting (lb-shop-rules plugin).
+	if ( function_exists( 'lbsr_get_product_group' ) && LBSR_GROUP_MERCH === lbsr_get_product_group( $product ) ) {
+		return $return;
+	}
+	return true;
+}
 add_filter( 'woocommerce_is_sold_individually','custom_remove_all_quantity_fields', 10, 2 );
 
 
@@ -530,6 +536,11 @@ add_filter( 'woocommerce_is_sold_individually','custom_remove_all_quantity_field
 add_action( 'woocommerce_cart_calculate_fees','bigAddRegistrationFees', 10, 1 );
 function bigAddRegistrationFees( $cart ) {
 	if ( is_admin() && ! defined( 'DOING_AJAX' ) ) {
+		return;
+	}
+
+	// Merch orders never pay the Living U registration fee (lb-shop-rules plugin).
+	if ( function_exists( 'lbsr_get_cart_group' ) && LBSR_GROUP_MERCH === lbsr_get_cart_group( $cart ) ) {
 		return;
 	}
 
@@ -555,7 +566,8 @@ function bigAddRegistrationFees( $cart ) {
 			}
 		}
 		
-		$cart->add_fee( __('Registration fee', 'woocommerce'), $regFees, true );
+		// Not taxable: the registration fee is part of a course, not a taxable good.
+		$cart->add_fee( __('Registration fee', 'woocommerce'), $regFees, false );
 	}
 }
 
