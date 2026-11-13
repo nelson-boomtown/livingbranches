@@ -780,11 +780,6 @@ function btig_custom_admin_menu() {
 
 
 
-//add_filter( 'woocommerce_product_single_add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );
-add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_custom_product_add_to_cart_text' );
-function woocommerce_custom_product_add_to_cart_text() {
-    return __( 'Select options', 'woocommerce' );
-}
 
 /**
  * Change reCAPTCHA’s threshold
