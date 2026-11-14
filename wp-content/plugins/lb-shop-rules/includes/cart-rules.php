@@ -1,6 +1,6 @@
 <?php
 /**
- * Cart rules: no mixed Merch/Courses carts.
+ * Cart rules: no mixed Merch/Courses carts; courses never need shipping.
  *
  * @package LB_Shop_Rules
  */
@@ -56,3 +56,22 @@ function lbsr_validate_cart_contents() {
 	}
 }
 add_action( 'woocommerce_check_cart_items', 'lbsr_validate_cart_contents' );
+
+/**
+ * Courses never need shipping: treat every non-Merch product as virtual.
+ *
+ * Applies wherever WooCommerce checks is_virtual() (cart, checkout shipping
+ * fields, orders). The "Virtual" checkbox on the product screen is not changed.
+ *
+ * @param bool       $is_virtual Saved "Virtual" setting.
+ * @param WC_Product $product    Product.
+ * @return bool
+ */
+function lbsr_courses_are_virtual( $is_virtual, $product ) {
+	if ( $is_virtual || ! $product instanceof WC_Product ) {
+		return $is_virtual;
+	}
+
+	return LBSR_GROUP_MERCH !== lbsr_get_product_group( $product );
+}
+add_filter( 'woocommerce_is_virtual', 'lbsr_courses_are_virtual', 10, 2 );
