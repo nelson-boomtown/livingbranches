@@ -1,7 +1,7 @@
 <?php
 /**
  * Plugin Name:       Living Branches Shop Rules
- * Description:       Separates Printful Merch from Living U courses: prevents mixed carts, adds Merch order emails to WooCommerce email settings and sends only Merch orders to Printful.
+ * Description:       Separates Printful Merch from Living U courses: hides Merch from the Shop page, prevents mixed carts, adds Merch order emails to WooCommerce email settings and sends only Merch orders to Printful.
  * Version:           1.0.0
  * Requires at least: 6.5
  * Requires PHP:      8.1
@@ -30,5 +30,6 @@ add_action(
 
 require_once LBSR_PATH . 'includes/product-groups.php';
 require_once LBSR_PATH . 'includes/cart-rules.php';
+require_once LBSR_PATH . 'includes/catalog.php';
 require_once LBSR_PATH . 'includes/emails.php';
 require_once LBSR_PATH . 'includes/printful.php';
