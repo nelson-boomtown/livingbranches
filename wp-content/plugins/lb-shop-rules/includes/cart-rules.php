@@ -1,6 +1,7 @@
 <?php
 /**
- * Cart rules: no mixed Merch/Courses carts; courses never need shipping.
+ * Cart rules: no mixed Merch/Courses carts; courses never need shipping;
+ * [lb_cart_type] shortcode for cart copy per cart type.
  *
  * @package LB_Shop_Rules
  */
@@ -75,3 +76,33 @@ function lbsr_courses_are_virtual( $is_virtual, $product ) {
 	return LBSR_GROUP_MERCH !== lbsr_get_product_group( $product );
 }
 add_filter( 'woocommerce_is_virtual', 'lbsr_courses_are_virtual', 10, 2 );
+
+/**
+ * [lb_cart_type show="courses|merch|empty"]…[/lb_cart_type]
+ *
+ * Shows the enclosed content only when the cart matches. Several types can be
+ * combined, e.g. show="courses,empty". Used for the intro copy on the Cart page.
+ *
+ * @param array|string $atts    Shortcode attributes.
+ * @param string|null  $content Enclosed content.
+ * @return string
+ */
+function lbsr_cart_type_shortcode( $atts, $content = null ) {
+	if ( null === $content || ! function_exists( 'WC' ) || ! WC()->cart ) {
+		return '';
+	}
+
+	$atts  = shortcode_atts( array( 'show' => '' ), $atts, 'lb_cart_type' );
+	$show  = array_filter( array_map( 'trim', explode( ',', strtolower( $atts['show'] ) ) ) );
+	$group = lbsr_get_cart_group( WC()->cart ) ?? 'empty';
+
+	if ( ! in_array( $group, $show, true ) ) {
+		return '';
+	}
+
+	// Drop the stray paragraph tags editors add around shortcodes.
+	$content = preg_replace( array( '#^\s*</p>#i', '#<p>\s*$#i' ), '', $content );
+
+	return do_shortcode( $content );
+}
+add_shortcode( 'lb_cart_type', 'lbsr_cart_type_shortcode' );
