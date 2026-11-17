@@ -30,6 +30,7 @@ add_action(
 
 require_once LBSR_PATH . 'includes/product-groups.php';
 require_once LBSR_PATH . 'includes/cart-rules.php';
+require_once LBSR_PATH . 'includes/payments.php';
 require_once LBSR_PATH . 'includes/catalog.php';
 require_once LBSR_PATH . 'includes/emails.php';
 require_once LBSR_PATH . 'includes/printful.php';
